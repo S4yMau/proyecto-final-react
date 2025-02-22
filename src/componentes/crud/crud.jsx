@@ -1,6 +1,7 @@
 import { getDocs,collection,addDoc,deleteDoc,updateDoc,doc } from "firebase/firestore"
 import { db } from "../../configuracion/firebase"
 import { useEffect, useState } from "react"
+import "./crud.css"
 function Crud() {
         const [listaProductos,setListaProductos]=useState([])
         const [nuevoProductoNombre,setNuevoProductoNombre]=useState("")
@@ -8,6 +9,7 @@ function Crud() {
         const [nuevoProductoPrecio,setNuevoProductoPrecio]=useState(0)
         const [nuevoProductoStock,setNuevoProductoStock]=useState(0)
         const [BorrarProductoId,setBorrarProductoId]=useState("")
+        const [nuevoProductoImg,setNuevoProductoImg]=useState("")
     
         const [actualizarProductoNombre,setActualizarProductoNombre]=useState("")
         const [actualizarProductoCategoria,setActualizarProductoCategoria]=useState("")
@@ -31,7 +33,8 @@ function Crud() {
             nombre:nuevoProductoNombre,
             precio:nuevoProductoPrecio,
             stock: nuevoProductoStock,
-            categoria:nuevoProductoCategoria
+            categoria:nuevoProductoCategoria,
+            img:nuevoProductoImg
         })
         obtenerListaProductos().then((resolve)=>{
             setListaProductos(resolve)
@@ -57,16 +60,17 @@ function Crud() {
         })//Agregar en el map de lista de productos con item.id
     } 
     return(
-        <div>
-            <div>
+<div className="crud__container">
+    <div className="crud__container_inputs">
         <h2>Nuevo producto</h2>
         <input placeholder="Nombre" onChange={(e)=>setNuevoProductoNombre(e.target.value)}/>
         <input placeholder="Precio" onChange={(e)=>setNuevoProductoPrecio(Number(e.target.value))}/>
         <input placeholder="Stock" onChange={(e)=>setNuevoProductoStock(Number(e.target.value))}/>
         <input placeholder="Categoria" onChange={(e)=>setNuevoProductoCategoria(e.target.value)}/>
+        <input placeholder="URL IMG" onChange={(e)=>setNuevoProductoImg(e.target.value)}/>
         <button onClick={crearProducto}>Crear</button>
     </div> 
-    <div>
+    <div className="crud__container_inputs">
         <h2>Editar producto</h2>
         <input placeholder="Nombre" onChange={(e)=>setActualizarProductoNombre(e.target.value)}/>
         <input placeholder="Precio" onChange={(e)=>setActualizarProductoPrecio(Number(e.target.value))}/>
@@ -75,12 +79,12 @@ function Crud() {
         <input placeholder="ID" onChange={(e)=>setActualizarProductoId(e.target.value)}/>
         <button onClick={actualizarProducto}>Editar</button>
     </div>
-    <div>
+    <div className="crud__container_inputs">
         <h2>Borrar producto</h2>
         <input placeholder="ID" onChange={(e)=>setBorrarProductoId(e.target.value)}/>
         <button onClick={borrarProducto}>Borrar</button>
     </div>
-        </div>
+</div>
     )
 }
 export default Crud

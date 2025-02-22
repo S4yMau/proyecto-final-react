@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+.producto__contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    color: #FF7851;
+}
+.producto__contenedor img{
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+}
+.producto__contenedor h2{
+    font-size: 2rem;
+}

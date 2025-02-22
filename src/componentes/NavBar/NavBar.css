@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+nav{
+    display: flex;
+    height: 100px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-color:#FF7851 ;
+    padding: 20px;
+    box-shadow: 1px 1px 10px  #000;
+}
+nav img{
+    width: 80px;
+    height: 100%;
+}
+nav ul{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+li{  
+    background-color: #ff5c2f;
+    padding: 10px 20px;
+    border-radius: 10px 20px;
+}
+li:hover{
+    background-color: #FF7851;
+    cursor: pointer;
+    color: #000;
+}

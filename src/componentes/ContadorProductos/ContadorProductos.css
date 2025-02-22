@@ -1,0 +1,23 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.contador__contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contador__contenedor button{
+    padding: 10px 20px;
+    background-color: #206137;
+    margin: 10px;
+    border-radius: 5px;
+}
+.contador__contenedor h2{
+    font-size: 2rem;
+}
+.contador__botones{
+    display: flex;
+}

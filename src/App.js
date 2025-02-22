@@ -6,71 +6,7 @@ import { CarritoProvider } from "./contexto/CarritoContexto";
 import Carrito from "./componentes/Carrito/Carrito";
 import Crud from "./componentes/crud/crud";
 import Checkout from "./componentes/checkout/Checkout";
-/*  import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from "firebase/firestore";
-import { db } from "./configuracion/firebase";
-import { useEffect, useState } from "react";  */
 function App() {
-/*   const productosColeccion = collection(db,"productos")
-  const [listaProductos,setListaProductos]=useState([])
-  const [nuevoProductoNombre,setNuevoProductoNombre]=useState("")
-  const [nuevoProductoCategoria,setNuevoProductoCategoria]=useState("")
-  const [nuevoProductoPrecio,setNuevoProductoPrecio]=useState(0)
-  const [nuevoProductoStock,setNuevoProductoStock]=useState(0)
-  const [BorrarProductoId,setBorrarProductoId]=useState("")
-
-  const [actualizarProductoNombre,setActualizarProductoNombre]=useState("")
-  const [actualizarProductoCategoria,setActualizarProductoCategoria]=useState("")
-  const [actualizarProductoPrecio,setActualizarProductoPrecio]=useState(0)
-  const [actualizarProductoStock,setActualizarProductoStock]=useState(0)
-  const [actualizarProductoId,setActualizarProductoId]=useState("") */
-
-/*     const obtenerListaProductos = async ()=>{
-          const data = await getDocs(productosColeccion)
-          const dataFiltrada = data.docs.map(doc=>{
-          return{
-              id:doc.id,
-              ...doc.data()
-          }
-          })
-          setListaProductos(dataFiltrada)
-          return dataFiltrada
-      }
-  useEffect(()=>{
-    obtenerListaProductos().then((resolve)=>{
-      setListaProductos(resolve)
-    })
-  },[])
-
-  const crearProducto = async ()=>{
-    await addDoc(productosColeccion,{
-      nombre:nuevoProductoNombre,
-      precio:nuevoProductoPrecio,
-      stock: nuevoProductoStock,
-      categoria:nuevoProductoCategoria
-    })
-    obtenerListaProductos().then((resolve)=>{
-      setListaProductos(resolve)
-    })
-  }
-  const borrarProducto = async()=>{
-    const productoDoc = doc(db,"productos",BorrarProductoId)
-    await deleteDoc(productoDoc)
-    obtenerListaProductos().then((resolve)=>{
-      setListaProductos(resolve)
-    })
-  }
-  const actualizarProducto = async ()=>{
-    const productoDoc = doc(db,"productos",actualizarProductoId)
-    await updateDoc(productoDoc,{
-      nombre:actualizarProductoNombre,
-      precio:actualizarProductoPrecio,
-      stock: actualizarProductoStock,
-      categoria:actualizarProductoCategoria
-    })
-    obtenerListaProductos().then((resolve)=>{
-      setListaProductos(resolve)
-    })//Agregar en el map de lista de productos con item.id
-  }  */
   return (
     <div className="App">
       <BrowserRouter>

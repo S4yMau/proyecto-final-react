@@ -1,0 +1,34 @@
+.crud__container{
+    background-color: #206137;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.crud__container_inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.crud__container_inputs button{
+    background-color: #ff5c2f;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+.crud__container_inputs input{
+    background-color: #206137;
+    outline-color: transparent;
+    border-color:transparent ;
+    border-bottom-color: #ff5c2f;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    color:#ff5c2f ;
+}
+.crud__container_inputs input:focus{
+    outline: none;
+}
+.crud__container_inputs input:hover{
+    background-color:#965b4b ;
+}

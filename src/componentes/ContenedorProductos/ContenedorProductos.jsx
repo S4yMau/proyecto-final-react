@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react"
 import ListaProductos from "../ListaProductos/ListaProductos"
 import { useParams } from "react-router-dom"
@@ -38,7 +39,9 @@ const ContenedorProductos = ()=>{
 
     return(
         <div>
-            <ListaProductos productos={productos}/>
+            <div className="contenedor">
+                <ListaProductos productos={productos}/> 
+            </div>
         </div>
     )
 }
