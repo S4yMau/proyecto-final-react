@@ -22,31 +22,34 @@ const Checkout = () => {
                     email
                 },
                 items: carrito,
-                total: total,
+                total: total(),
                 date: Timestamp.fromDate(new Date())
             };
-
+            
             const batch = writeBatch(db); // Batch para actualizar el stock
             const outOfStock = []; // Productos sin stock
 
             const ids = carrito.map(prod => prod.id);
 
             // Obtener referencias a los productos en Firestore
-            const productsRef = collection(db, "products");
+            const productsRef = collection(db, "productos");
 
             // Crear consulta para obtener productos del carrito
             const productsAddedFromFirestore = await getDocs(
                 query(productsRef, where(documentId(), "in", ids))
-            );
-
+            )
+            
+            
             const { docs } = productsAddedFromFirestore;
-
+            
             // Verificar disponibilidad de stock
             docs.forEach(doc => {
                 const dataDoc = doc.data();
+                
                 const stockDb = dataDoc.stock; // Asegúrate de que el campo "stock" exista en Firestore
                 const productAddedToCart = carrito.find(prod => prod.id === doc.id);
-                const prodQuantity = productAddedToCart?.quantity;
+                
+                const prodQuantity = productAddedToCart?.cantidad;
 
                 if (stockDb >= prodQuantity) {
                     batch.update(doc.ref, { stock: stockDb - prodQuantity });
@@ -59,7 +62,7 @@ const Checkout = () => {
                 // Si todos los productos tienen stock suficiente
                 await batch.commit(); // Actualizar stock en Firestore
 
-                const orderRef = collection(db, "orders");
+                const orderRef = collection(db, "ordenes");
                 const orderAdded = await addDoc(orderRef, objOrder);
 
                 setOrderId(orderAdded.id); // Guardar ID de la orden

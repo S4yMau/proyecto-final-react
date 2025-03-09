@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const CheckoutForm = ({ onConfirm }) => {
     const [name, setName] = useState("");
@@ -49,9 +50,9 @@ const CheckoutForm = ({ onConfirm }) => {
                         </button>
                     </p>
                     <p className="control">
-                        <a className="button is-light">
+                        <Link to="/" >
                             Cancel
-                        </a>
+                        </Link>
                     </p>
                 </div>
 
